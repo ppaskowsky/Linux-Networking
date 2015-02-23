@@ -1,0 +1,17 @@
+
+#debian1
+modprobe ip_gre
+ip tunnel add tun mode gre remote 50.74.110.93 local 206.111.121.166 ttl 255
+ip link set tun up
+ip addr add 172.16.0.1 dev tun
+ip route add 172.16.0.0/24 dev tun
+ip route add 192.168.20.0/24 dev tun
+
+
+#debian2
+modprobe ip_gre
+ip tunnel add tun mode gre remote 206.111.121.166 local 50.74.110.93 ttl 255
+ip link set tun up
+ip addr add 172.16.0.2 dev tun
+ip route add 172.16.0.0/24 dev tun
+ip route add 192.168.10.0/24 dev tun
