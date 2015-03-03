@@ -23,9 +23,9 @@ conn Hub01-Spoke01
         type=transport                              # Transport mode ipsec
         left=%defaultroute
         leftnexthop=%defaultroute
-        leftid=52.0.92.165                          # Local IP
+        leftid=69.163.56.154                        # Local IP
         leftprotoport=47/0                          # Match the GRE traffic
-        right=50.74.110.92                          # Remote IP
+        right=52.0.92.165                           # Remote IP
         rightprotoport=47/0                         # Match the GRE traffic
         ike=aes256-sha1;modp2048                    # ISAKMP - AES 256, SHA-1, Diffie-Hellman Group 14
         phase2=esp                                  # Use ESP
@@ -33,18 +33,5 @@ conn Hub01-Spoke01
         pfs=yes
 
 
-conn Hub01-Spoke02
-        authby=secret                               # Use PSK
-        auto=start                                  # Autostart on boot
-        type=transport                              # Transport mode ipsec
-        left=%defaultroute
-        leftnexthop=%defaultroute
-        leftid=52.0.92.165                          # Local IP
-        leftprotoport=47/0                          # Match the GRE traffic
-        right=69.163.56.154                         # Remote IP
-        rightprotoport=47/0                         # Match the GRE traffic
-        ike=aes256-sha1;modp2048                    # ISAKMP - AES 256, SHA-1, Diffie-Hellman Group 14
-        phase2=esp                                  # Use ESP
-        phase2alg=aes256-sha1;modp2048              # IPSEC SA - AES 256, SHA-1, Diffie-Hellman Group 14
-        pfs=yes
+
 
