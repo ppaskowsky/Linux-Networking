@@ -1,0 +1,10 @@
+#
+# Linux GRE Configuration
+#
+
+modprobe ip_gre
+ip tunnel add gre1 mode gre remote 52.0.92.165 local 69.163.56.154 ttl 255
+ip link set gre1 up multicast on mtu 1400
+ip addr add 172.16.0.6/30 peer 172.16.0.5/30 brd + dev gre1
+ip route add 172.16.0.0/22 dev gre1
+ip route add 172.30.0.0/16 dev gre1
